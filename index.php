@@ -12,6 +12,7 @@ use vBulletin\Connection\Enum\Driver;
 use vBulletin\Env;
 use vBulletin\Logger\Log;
 use vBulletin\Search\Search;
+use vBulletin\Helpers\Input;
 
 $db = new DB(Driver::MYSQL, Env::DBNAME, Env::HOST, Env::USER, Env::PASSWORD);
 
@@ -23,10 +24,10 @@ $vb = new Search($db);
 $results = [];
 
 if (isset($_REQUEST['q'])) {
-    $value = $_REQUEST['q'];
+    $value = Input::sanitize($_REQUEST['q']);
     $results = $vb->searchProcess($value);
 } else if (isset($_REQUEST['searchid'])) {
-    $id = (int) $_REQUEST['searchid'];
+    $id = (int) Input::sanitize($_REQUEST['searchid']);
     $results = $vb->searchResults($id);
 }
 
