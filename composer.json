@@ -1,0 +1,15 @@
+{
+    "name": "meir/v-bulletin",
+    "autoload": {
+        "psr-4": {
+            "vBulletin\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "Meirbek",
+            "email": "meirbek241@gmail.com"
+        }
+    ],
+    "require": {}
+}
